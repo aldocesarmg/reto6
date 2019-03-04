@@ -23,6 +23,21 @@ public class Reto6 {
         System.out.println("El semestre en que más se vende el sabor fresa es: "+trimestres[valoresMasAltos[1][2]]);
         System.out.println("El semestre en que más se vende el sabor oreo es: "+trimestres[valoresMasAltos[1][3]]);
         
+        int[] sumaTrimestres = {0,0,0,0};
+        int[][] trimestreMayor = {{0},{0}}; //LA PRIMERA DIMENSIÓN ALMACENA EL VALOR MÁS ALTO; LA SEGUNDA DIMENSIÓN ALMACENA SU POSICIÓN
+        
+        for(int n = 0; n<datos.length; n++){
+            for(int i = 0; i<datos.length; i++){
+                sumaTrimestres[n] += datos[n][i];
+            }
+        }
+        for(int n = 0; n<datos.length; n++){
+            if(sumaTrimestres[n]>trimestreMayor[0][0]){
+                trimestreMayor[0][0] = sumaTrimestres[n];
+                trimestreMayor[1][0] = n;
+            }
+        }
+        System.out.println("El trimestre que más vendió fue el de "+trimestres[trimestreMayor[1][0]]);
     }
     
 }
